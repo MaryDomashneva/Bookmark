@@ -1,9 +1,19 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/mariagetmanova/Desktop/Makers_Projects/Bookmark/spec/bookmark_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/mariagetmanova/Desktop/Makers_Projects/Bookmark/spec/features/viewing_links_feature_spec.rb": [
-        null,
-        null,
         1,
         1,
         1,
@@ -12,6 +22,6 @@
         null
       ]
     },
-    "timestamp": 1523275255
+    "timestamp": 1523280023
   }
 }

@@ -9,7 +9,7 @@ require 'simplecov'
 require 'simplecov-console'
 
 
-Capybara.app = Bookmark
+Capybara.app = BookmarkManager
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

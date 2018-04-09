@@ -1,12 +1,11 @@
 require 'sinatra/base'
+require './lib/bookmark'
 
-class Bookmark < Sinatra::Base
-  
+class BookmarkManager < Sinatra::Base
+
   get '/bookmarks' do
-    bookmarks = [
-              "http://makersacademy.com",
-             ]
-    bookmarks.join
+    @bookmarks = Bookmark.all
+    erb :index
   end
 
 

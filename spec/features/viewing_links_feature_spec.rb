@@ -1,5 +1,3 @@
-
-
 feature 'View links' do
   scenario 'when pressing the button Bookmarks' do
     visit('/bookmarks')
