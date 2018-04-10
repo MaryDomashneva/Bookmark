@@ -17,5 +17,10 @@ describe Bookmark do
       Bookmark.create(url: 'https://github.com/MaryDomashneva')
       expect(Bookmark.all).to include 'https://github.com/MaryDomashneva'
     end
+    it 'does not create a new bookmark if the URL is not valid' do
+      Bookmark.create(url: 'not a real bookmark')
+
+      expect(Bookmark.all).not_to include 'not a real bookmark'
+    end
   end
 end

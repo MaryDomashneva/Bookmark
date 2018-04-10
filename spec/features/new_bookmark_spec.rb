@@ -3,6 +3,16 @@ feature 'Add a new bookmarks' do
     visit('/bookmarks/new')
     fill_in('url', with: 'https://github.com/MaryDomashneva')
     click_button('Submit')
+
     expect(page).to have_content "https://github.com/MaryDomashneva"
+  end
+
+  scenario 'The bookmark must be a valid URL' do
+    visit('/bookmarks/new')
+    fill_in('url', with: 'gggt')
+    click_button('Submit')
+
+    expect(page).not_to have_content "not a real bookmark"
+    expect(page).to have_content "You must submit a valid URL."
   end
 end
