@@ -8,19 +8,33 @@
         1,
         1,
         1,
-        1,
         null,
         1,
         null,
         null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
         1,
         1,
         null,
         null,
         null
       ],
-      "/Users/mariagetmanova/Desktop/Makers_Projects/Bookmark/spec/features/viewing_links_feature_spec.rb": [
+      "/Users/mariagetmanova/Desktop/Makers_Projects/Bookmark/spec/features/new_bookmark_spec.rb": [
         1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/mariagetmanova/Desktop/Makers_Projects/Bookmark/spec/features/viewing_links_feature_spec.rb": [
         1,
         1,
         1,
@@ -39,6 +53,6 @@
         1
       ]
     },
-    "timestamp": 1523361812
+    "timestamp": 1523368105
   }
 }
