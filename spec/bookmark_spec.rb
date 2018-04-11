@@ -17,10 +17,23 @@ describe Bookmark do
       Bookmark.create(url: 'https://github.com/MaryDomashneva')
       expect(Bookmark.all).to include 'https://github.com/MaryDomashneva'
     end
-    it 'does not create a new bookmark if the URL is not valid' do
-      Bookmark.create(url: 'not a real bookmark')
-
-      expect(Bookmark.all).not_to include 'not a real bookmark'
+  end
+  describe '.is_url?' do
+    it 'returns false if URL is not valid' do
+      expect(Bookmark.is_url?('htps://travis-ci.org')).to eq(false)
+    end
+    it 'returns true if URL is valid' do
+      expect(Bookmark.is_url?('https://travis-ci.org')).to eq(true)
+    end
+  end
+  describe '.unique?' do
+    it 'returns false if URL is not unique' do
+      link = 'https://github.com/MaryDomashneva'
+      expect(Bookmark.unique?(link)).to eq(false)
+    end
+    it 'returns true if URL is unique' do
+        Bookmark.all
+      expect(Bookmark.unique?('https://stackoverflow.com')).to eq(true)
     end
   end
 end
