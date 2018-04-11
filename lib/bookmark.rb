@@ -16,7 +16,7 @@ class Bookmark
     return @result.to_a
   end
 
-  def self.create(link, name)
+  def self.create(url:, title:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'bookmark_manager_test')
     else
@@ -25,7 +25,7 @@ class Bookmark
     #
     # return false unless is_url?(options[:url])
 
-    connection.exec("INSERT INTO bookmarks (url, title) VALUES('#{link[:url]}', '#{name[:title]}')")
+    connection.exec("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}')")
   end
 
   def self.unique?(url)
