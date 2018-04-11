@@ -21,8 +21,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  require_relative './setup_test_database'
   config.before(:each) do
-    require_relative './setup_test_database'
+    clearout
   end
 end
 

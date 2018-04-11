@@ -1,7 +1,15 @@
 <ul>
-  <% @bookmarks.each do |bookmark| %>
-    <li><%= bookmark %></li>
+  <% @bookmarks.map do |bookmark| %>
+    <li>
+      <%= bookmark['url'] %>
+      <%= bookmark['title'] %>
+    </li>
   <% end %>
+  <!-- <% @bookmarks.map do |bookmark| %>
+    <li>
+
+    </li>
+  <% end %> -->
 </ul>
 
 <form

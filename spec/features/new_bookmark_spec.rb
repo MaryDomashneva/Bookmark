@@ -1,12 +1,13 @@
 require 'pry'
 
-feature 'Add a new bookmarks' do
+feature 'Add a new bookmark' do
   scenario 'A user can save a page and add a new bookmark' do
     visit('/bookmarks/new')
     fill_in('url', with: 'https://travis-ci.org')
+    fill_in('title', with: 'Travis')
     click_button('Submit')
-    Bookmark.create(url: 'https://travis-ci.org')
     expect(page).to have_content "https://travis-ci.org"
+    expect(page).to have_content "Travis"
   end
 
   scenario 'The bookmark must be a valid URL' do
