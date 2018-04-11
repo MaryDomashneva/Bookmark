@@ -20,12 +20,14 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    if Bookmark.is_url?(params['url']) && Bookmark.unique?(params['url'])
+    is_valid_url = Bookmark.is_url?(params['url'])
+    is_unique_url = Bookmark.unique?(params['url'])
+    if is_valid_url && is_unique_url
       Bookmark.create(url: params['url'], title: params['title'])
       redirect('/bookmarks')
     else
-      flash[:notice_1] = "You must submit a valid URL."
-      flash[:notice_2] = "URL already exists!"
+      flash[:notice] = "You must submit a valid URL." unless is_valid_url
+      flash[:notice] = "URL already exists!" unless is_unique_url
       redirect('/')
     end
   end
