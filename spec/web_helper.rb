@@ -25,10 +25,8 @@ def create_database_with_several_bookmarks_for_feature_test
   fill_in('url', with: 'https://travis-ci.org')
   fill_in('title', with: 'Travis')
   click_button('Submit')
-  p Bookmark.all.to_a
   click_button('Add_new_bookmark')
-  fill_in('url', with: 'http://makersacademy.com')
-  fill_in('title', with: 'Makersacademy')
+  fill_in('url', with: 'https://vk.com')
+  fill_in('title', with: 'Vkontakt')
   click_button('Submit')
-  p Bookmark.all.to_a
 end
