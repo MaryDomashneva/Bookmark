@@ -1,31 +1,28 @@
 require './lib/bookmark'
 
 describe Bookmark do
+
+  link = 'http://makersacademy.com'
+
+  expected_bookmarks = [
+    {
+      'url' => link,
+      'title' => 'Makersacademy',
+      'id' => '1'
+    }
+  ]
+
   describe '.all' do
     it 'returns all bookmarks' do
-      Bookmark.create(
-        url: 'http://makersacademy.com',
-        title: 'Makersacademy'
-      )
-
-      expected_bookmarks = [
-        {
-          'url' => 'http://makersacademy.com',
-          'title' => 'Makersacademy',
-          'id' => '1'
-        }
-      ]
+      create_date_base
       bookmarks = Bookmark.all
       expect(bookmarks).to eq expected_bookmarks
     end
   end
   describe '.create' do
     it 'creats a new bookmark' do
-      Bookmark.create(
-        url: 'https://github.com/MaryDomashneva',
-        title: 'GitHub'
-      )
-      expect(Bookmark.all.last['url']).to eq('https://github.com/MaryDomashneva')
+      create_date_base
+      expect(Bookmark.all.last['url']).to eq(link)
     end
   end
   describe '.is_url?' do
@@ -38,19 +35,20 @@ describe Bookmark do
   end
   describe '.unique?' do
     it 'returns false if URL is not unique' do
-      link = 'https://github.com/MaryDomashneva'
-      Bookmark.create(
-        url: link,
-        title: 'GitHub'
-      )
+      create_date_base
       expect(Bookmark.unique?(link)).to eq(false)
     end
     it 'returns true if URL is unique' do
-      Bookmark.create(
-        url: 'https://github.com/MaryDomashneva',
-        title: 'GitHub'
-      )
-      expect(Bookmark.unique?('https://stackoverflow.com')).to eq(true)
+      create_date_base
+      expect(Bookmark.unique?('https://travis-ci.org')).to eq(true)
+    end
+  end
+  describe '.delete_bookmarks' do
+    it 'delets bookmark by url and returns database without deleted bookmark' do
+      create_database_with_several_bookmarks
+      Bookmark.delete_bookmarks(['https://travis-ci.org'])
+      bookmarks = Bookmark.all
+      expect(bookmarks).to eq expected_bookmarks
     end
   end
 end

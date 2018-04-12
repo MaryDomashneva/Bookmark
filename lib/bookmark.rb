@@ -50,11 +50,6 @@ class Bookmark
     end
 
     @result = connection.exec("DELETE FROM bookmarks WHERE url IN ('#{urls.join("','")}');")
-    #for now I do not see anything
-    # @result.delete_if { |bookmark| bookmark.has_value?(url) }
-    # @result.map {
-    #   |bookmark| bookmark.delete_if { |k,v| v == url }
-    # }
     return @result
   end
 end

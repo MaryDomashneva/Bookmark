@@ -9,6 +9,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'pry'
+require 'web_helper'
 
 
 Capybara.app = BookmarkManager
