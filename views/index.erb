@@ -1,19 +1,18 @@
 <ul>
   <% @bookmarks.map do |bookmark| %>
     <li>
-      <%= bookmark['url'] %>
-      <%= bookmark['title'] %>
+      <a href=<%= bookmark['url'] %>><%= bookmark['title'] %></a>
     </li>
   <% end %>
-  <!-- <% @bookmarks.map do |bookmark| %>
-    <li>
-
-    </li>
-  <% end %> -->
 </ul>
 
 <form
   action="/bookmarks/new"
   method="get">
   <input type="submit" value="Add_new_bookmark" />
+</form>
+<form
+  action="/bookmarks/delete"
+  method="get">
+  <input type="submit" value="Delete" />
 </form>

@@ -1,0 +1,8 @@
+<form
+action="/bookmarks/delete"
+method="post">
+  <% @bookmarks.each do |bookmark| %>
+      <p><input type="checkbox" name="urls[]" value=<%= bookmark['url'] %> checked="true"><%= bookmark['title'] %></input></p>
+  <% end %>
+    <input type="submit" value="Submit" />
+</form>

@@ -6,8 +6,7 @@ feature 'Add a new bookmark' do
     fill_in('url', with: 'https://travis-ci.org')
     fill_in('title', with: 'Travis')
     click_button('Submit')
-    expect(page).to have_content "https://travis-ci.org"
-    expect(page).to have_content "Travis"
+    expect(find_link('Travis').visible?).to be(true)
   end
 
   scenario 'The bookmark must be a valid URL' do

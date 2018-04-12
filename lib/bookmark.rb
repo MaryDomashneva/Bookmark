@@ -22,8 +22,6 @@ class Bookmark
     else
       connection = PG.connect(dbname: 'bookmark_manager')
     end
-    #
-    # return false unless is_url?(options[:url])
 
     connection.exec("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}')")
   end
@@ -42,5 +40,21 @@ class Bookmark
   def self.is_url?(url)
     uri = URI.parse(url)
     uri.kind_of?(URI::HTTP) && uri.kind_of?(URI::HTTPS)
+  end
+
+  def self.delete_bookmarks(urls)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+    else
+      connection = PG.connect(dbname: 'bookmark_manager')
+    end
+
+    @result = connection.exec("DELETE FROM bookmarks WHERE url IN ('#{urls.join("','")}');")
+    #for now I do not see anything
+    # @result.delete_if { |bookmark| bookmark.has_value?(url) }
+    # @result.map {
+    #   |bookmark| bookmark.delete_if { |k,v| v == url }
+    # }
+    return @result
   end
 end

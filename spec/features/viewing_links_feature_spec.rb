@@ -4,9 +4,7 @@ feature 'View bookmarks' do
       url: 'http://makersacademy.com',
       title: 'Makersacademy'
     )
-
     visit('/bookmarks')
-    expect(page).to have_content "http://makersacademy.com"
-    expect(page).to have_content "Makersacademy"
+    expect(find_link('Makersacademy').visible?).to be(true)
   end
 end
