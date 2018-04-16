@@ -5,10 +5,10 @@
         1,
         null,
         1,
-        11,
-        11,
-        11,
-        11,
+        12,
+        12,
+        12,
+        12,
         null
       ],
       "/Users/mariagetmanova/Desktop/Makers_Projects/Bookmark/spec/bookmark_spec.rb": [
@@ -103,6 +103,21 @@
         null,
         null
       ],
+      "/Users/mariagetmanova/Desktop/Makers_Projects/Bookmark/spec/features/update_bookmark_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        0,
+        null,
+        null
+      ],
       "/Users/mariagetmanova/Desktop/Makers_Projects/Bookmark/spec/features/viewing_links_feature_spec.rb": [
         1,
         1,
@@ -113,6 +128,6 @@
         null
       ]
     },
-    "timestamp": 1523565536
+    "timestamp": 1523568365
   }
 }

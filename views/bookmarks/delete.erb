@@ -2,7 +2,11 @@
 action="/bookmarks/delete"
 method="post">
   <% @bookmarks.each do |bookmark| %>
-      <p><input type="checkbox" name="urls[]" value=<%= bookmark['url'] %> id=<%= bookmark['id'] %> checked="true"><%= bookmark['title'] %></input></p>
+      <p><input type="checkbox" name="urls[]" value=<%= bookmark['url'] %> id=<%= bookmark['id'] %>><%= bookmark['title'] %></input></p>
   <% end %>
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Delete" />
+</form>
+
+<form action="/bookmarks" method="get">
+  <input type="submit" value="Back" />
 </form>

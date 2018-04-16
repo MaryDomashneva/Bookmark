@@ -52,4 +52,15 @@ class Bookmark
     @result = connection.exec("DELETE FROM bookmarks WHERE url IN ('#{urls.join("','")}');")
     return @result
   end
+
+  def self.update_bookmark(url)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+    else
+      connection = PG.connect(dbname: 'bookmark_manager')
+    end
+
+    @result = connection.exec("UPDATE bookmarks SET title = #{} WHERE url #{url};")
+    return @result
+  end
 end

@@ -1,0 +1,11 @@
+<form
+action="/bookmarks/update_title"
+method="post">
+  <% @bookmarks.each do |bookmark| %>
+      <p><input type="checkbox" name="urls[]" value=<%= bookmark['url'] %> id=<%= bookmark['id'] %> checked="true"><%= bookmark['title'] %></input></p>
+  <% end %>
+  <label for="title"> Title
+    <input type="text" name="title"/>
+  </label>
+    <input type="submit" value="Submit" />
+</form>
