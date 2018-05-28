@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/MaryDomashneva/bookmarks-manager-challenge.svg?branch=master)](https://travis-ci.org/MaryDomashneva/bookmarks-manager-challenge)
-
 Bookmark manager challenge
 =================
 
